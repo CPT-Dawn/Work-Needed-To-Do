@@ -12,7 +12,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color.fromARGB(255, 168, 139, 247),
+        backgroundColor: const Color.fromARGB(255, 168, 139, 247),
         appBar: AppBar(
           backgroundColor: Colors.black,
           centerTitle: true,
@@ -23,7 +23,11 @@ class _HomePageState extends State<HomePage> {
         ),
         body: ListView(
           children: [
-            ToDoTile(),
+            ToDoTile(
+              taskName: "Complete the first project!",
+              taskCompleted: true,
+              onChanged: (p0) {},
+            ),
           ],
         ));
   }
