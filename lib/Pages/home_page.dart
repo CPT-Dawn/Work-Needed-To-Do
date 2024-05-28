@@ -14,7 +14,9 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final _controller = TextEditingController();
 
-  List toDoList = [];
+  List toDoList = [
+    ["Will this app open?", false],
+  ];
 
   void checkBoxChanged(bool? value, int index) {
     setState(() {
