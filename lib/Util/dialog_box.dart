@@ -9,6 +9,19 @@ class DialogBox extends StatelessWidget {
       backgroundColor: Colors.white,
       content: Container(
         height: 120,
+        child: Column(
+          children: [
+            TextField(
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: "Enter the work!",
+              ),
+            ),
+            Row(
+              children: [],
+            )
+          ],
+        ),
       ),
     );
   }
