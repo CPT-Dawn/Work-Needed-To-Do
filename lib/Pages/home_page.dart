@@ -14,11 +14,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final _controller = TextEditingController();
 
-  List toDoList = [
-    ["Complete the first project!", false],
-    ["Complete the first project!", false],
-    ["Complete the first project!", false],
-  ];
+  List toDoList = [];
 
   void checkBoxChanged(bool? value, int index) {
     setState(() {
