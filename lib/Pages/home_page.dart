@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:work_needed_to_do/Util/dialog_box.dart';
 import 'package:work_needed_to_do/Util/todo_tile.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -27,7 +28,9 @@ class _HomePageState extends State<HomePage> {
   void saveNewTask() {
     setState(() {
       toDoList.add([_controller.text, false]);
+      _controller.clear();
     });
+    Navigator.of(context).pop();
   }
 
   void createNewTask() {
@@ -41,6 +44,12 @@ class _HomePageState extends State<HomePage> {
         );
       },
     );
+  }
+
+  void deleteTask(int index) {
+    setState(() {
+      toDoList.removeAt(index);
+    });
   }
 
   @override
@@ -66,6 +75,7 @@ class _HomePageState extends State<HomePage> {
               taskName: toDoList[index][0],
               taskCompleted: toDoList[index][1],
               onChanged: (value) => checkBoxChanged(value, index),
+              deletefunction: (context) => deleteTask(index),
             );
           }),
     );
