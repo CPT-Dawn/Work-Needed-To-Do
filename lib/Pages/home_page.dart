@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage> {
         return DialogBox(
           controller: _controller,
           onSave: saveNewTask,
-          onCancel: () => Navigator.of(context).pop,
+          onCancel: () => Navigator.of(context).pop(),
         );
       },
     );
@@ -62,21 +62,74 @@ class _HomePageState extends State<HomePage> {
           'To Do',
           style: TextStyle(color: Colors.white),
         ),
+        iconTheme: const IconThemeData(
+            color: Colors.white), // Set the drawer icon color to white
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.account_circle, color: Colors.white),
+            onPressed: () {
+              // Add your account icon action here
+            },
+          ),
+        ],
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.black,
+              ),
+              child: Text(
+                'Menu',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                ),
+              ),
+            ),
+            ListTile(
+              leading: const Icon(Icons.home, color: Colors.black),
+              title: const Text('Home', style: TextStyle(color: Colors.black)),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.settings, color: Colors.black),
+              title:
+                  const Text('Settings', style: TextStyle(color: Colors.black)),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.logout, color: Colors.black),
+              title:
+                  const Text('Logout', style: TextStyle(color: Colors.black)),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: createNewTask,
         child: const Icon(Icons.add),
       ),
       body: ListView.builder(
-          itemCount: toDoList.length,
-          itemBuilder: (context, index) {
-            return ToDoTile(
-              taskName: toDoList[index][0],
-              taskCompleted: toDoList[index][1],
-              onChanged: (value) => checkBoxChanged(value, index),
-              deletefunction: (context) => deleteTask(index),
-            );
-          }),
+        itemCount: toDoList.length,
+        itemBuilder: (context, index) {
+          return ToDoTile(
+            taskName: toDoList[index][0],
+            taskCompleted: toDoList[index][1],
+            onChanged: (value) => checkBoxChanged(value, index),
+            deletefunction: (context) => deleteTask(index),
+          );
+        },
+      ),
     );
   }
 }
