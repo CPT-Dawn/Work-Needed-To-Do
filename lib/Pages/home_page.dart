@@ -60,10 +60,20 @@ class _HomePageState extends State<HomePage> {
         centerTitle: true,
         title: const Text(
           'To Do',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+            letterSpacing: 1,
+            shadows: [
+              Shadow(
+                offset: Offset(2.0, 2.0),
+                blurRadius: 3.0,
+                color: Color.fromARGB(64, 25, 83, 177),
+              ),
+            ],
+          ),
         ),
-        iconTheme: const IconThemeData(
-            color: Colors.white), // Set the drawer icon color to white
+        iconTheme: const IconThemeData(color: Colors.white),
         actions: [
           IconButton(
             icon: const Icon(Icons.account_circle, color: Colors.white),
