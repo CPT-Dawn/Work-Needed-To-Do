@@ -15,7 +15,9 @@ class _HomePageState extends State<HomePage> {
   final _controller = TextEditingController();
 
   List toDoList = [
+    ["Complete the first flutter project", false],
     ["Will this app open?", false],
+    ["make a linkedin post about the app", false],
   ];
 
   void checkBoxChanged(bool? value, int index) {
